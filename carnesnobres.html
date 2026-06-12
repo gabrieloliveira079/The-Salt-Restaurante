@@ -289,5 +289,64 @@ function add(valor){
 
 </script>
 
+<div id="boneco" onclick="comer()">
+😀 <span id="comida">🍖</span>
+</div>
+
+<style>
+#boneco{
+position:fixed;
+bottom:20px;
+right:20px;
+font-size:60px;
+cursor:pointer;
+z-index:9999;
+animation:piscar 4s infinite;
+}
+
+#comida{
+font-size:35px;
+}
+
+@keyframes piscar{
+0%,90%,100%{transform:scale(1);}
+92%{transform:scaleY(0.8);}
+94%{transform:scaleY(1);}
+}
+
+.comendo{
+animation:mastigar 0.8s;
+}
+
+@keyframes mastigar{
+0%{transform:scale(1);}
+25%{transform:scale(1.1);}
+50%{transform:scale(0.95);}
+75%{transform:scale(1.1);}
+100%{transform:scale(1);}
+}
+</style>
+
+<script>
+function comer(){
+
+const boneco =
+document.getElementById("boneco");
+
+const comida =
+document.getElementById("comida");
+
+boneco.classList.add("comendo");
+
+comida.style.opacity = "0";
+
+setTimeout(function(){
+comida.style.opacity = "1";
+boneco.classList.remove("comendo");
+},800);
+
+}
+</script>
+
 </body>
 </html>
